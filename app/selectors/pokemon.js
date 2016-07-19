@@ -1,6 +1,6 @@
 import {createSelector} from 'reselect';
 import {Pokemon, EvolutionCost} from '../constants/pokemon';
-import {currentXPSelector, targetXPSelector} from './experiencePoints';
+import {currentXPSelector, targetXPSelector, doubleXPSelector} from './experiencePoints';
 
 export const totalsSelector = state => state.totals;
 export const pokemonSelector = state => state.totals.pokemon;
@@ -13,14 +13,15 @@ export const pidgiesSelector = createSelector(
     var required = targetXP - currentXP;
     return Math.ceil(required / EvolutionCost.PIDGY);
   }
-)
+);
 
 export const potentialEvolveXPSelector = createSelector(
   pokemonSelector,
-  (pokemon) => {
+  doubleXPSelector,
+  (pokemon, doubleXP) => {
     return Object.keys(pokemon).reduce((map, item) => ({
       ...map,
-      [item]: pokemon[item] * 500
+      [item]: pokemon[item] * 500 * (doubleXP ? 2 : 1)
     }), {})
   }
 );

@@ -11,7 +11,6 @@ import selector from '../selectors/calculator';
 
 class Calculator extends React.Component {
   render() {
-    console.log(this.props.grossEvolveXP)
     return (
       <div>
         <XPInputs
@@ -25,8 +24,19 @@ class Calculator extends React.Component {
       />
 
       <br/>
-      <label><input type="checkbox" />
-      Double XP
+      <label>
+        <input
+          type="checkbox"
+          checked={this.props.doubleXP}
+          onChange={() => {
+            if (this.props.doubleXP) {
+              this.props.actions.xp.disableDoubleXP();
+            } else {
+              this.props.actions.xp.enableDoubleXP();
+            }
+          }}
+        />
+        Double XP
       </label>
 
       <br/><br/>
