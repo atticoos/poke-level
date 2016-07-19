@@ -10,15 +10,10 @@ export default class PokemonSlider extends React.Component {
   render () {
     const {pokemon, ...props} = this.props;
     return (
-      <div>
-        <h4>{pokemon}</h4>
-        <div className="slider-row">
-          <span>0</span>
-          <Slider withBars {...props}>
-            <Handle value={props.value} />
-          </Slider>
-          <span>100</span>
-        </div>
+      <div className="slider-row">
+        <Slider withBars {...props}>
+          <Handle value={props.value} />
+        </Slider>
       </div>
     );
   }

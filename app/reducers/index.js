@@ -1,10 +1,10 @@
 import {combineReducers} from 'redux';
 import experiencePoints from './experiencePoints';
-import percentages from './percentages';
+import totals from './totals';
 
 const reducers = {
   experiencePoints,
-  percentages
+  totals
 };
 
 export default combineReducers(reducers);

@@ -2,8 +2,8 @@ import React from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import * as ExperiencePointsActions from '../actions/experiencePoints';
-import * as PercentageActions from '../actions/percentages';
-import PokeSlider from '../components/slider';
+import * as PokemonActions from '../actions/pokemon';
+import SliderGroup from '../components/sliderGroup';
 import {Pokemon} from '../constants/pokemon';
 import Handle from '../components/handle';
 import XPInputs from '../components/inputs';
@@ -11,7 +11,6 @@ import selector from '../selectors/calculator';
 
 class Calculator extends React.Component {
   render() {
-    console.log('percentages', this.props.percentages)
     return (
       <div>
         <XPInputs
@@ -30,12 +29,14 @@ class Calculator extends React.Component {
 
 
       <h2>Remaining Catches</h2>
-      {Object.keys(this.props.percentages).map(type => (
-        <PokeSlider
+      {Object.keys(Pokemon).map(type => (
+        <SliderGroup
           key={`slider_${type}`}
-          pokemon={type}
-          value={this.props.percentages[type]}
-          onChange={percentage => this.props.actions.percentages.pokemonPercentageChanged(type, percentage)}
+          type={type}
+          pokemonCount={this.props.totals.pokemon[type]}
+          candyCount={this.props.totals.candy[type]}
+          pokemonCountChanged={count => this.props.actions.pokemon.pokemonCountChanged(type, count)}
+          candyCountChanged={count => this.props.actions.pokemon.candyCountChanged(type, count)}
         />
       ))}
 
@@ -51,7 +52,7 @@ class Calculator extends React.Component {
 const actions = dispatch => ({
   actions: {
     xp: bindActionCreators(ExperiencePointsActions, dispatch),
-    percentages: bindActionCreators(PercentageActions, dispatch)
+    pokemon: bindActionCreators(PokemonActions, dispatch)
   }
 });
 

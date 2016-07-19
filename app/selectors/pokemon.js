@@ -2,7 +2,7 @@ import {createSelector} from 'reselect';
 import {Pokemon, EvolutionCost} from '../constants/pokemon';
 import {currentXPSelector, targetXPSelector} from './experiencePoints';
 
-export const percentagesSelector = state => state.percentages;
+export const totalsSelector = state => state.totals;
 
 export const pidgiesSelector = createSelector(
   currentXPSelector,
