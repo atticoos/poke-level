@@ -1,16 +1,17 @@
 import React from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
+import {Pokemon} from '../constants/pokemon';
 import * as ExperiencePointsActions from '../actions/experiencePoints';
 import * as PokemonActions from '../actions/pokemon';
 import SliderGroup from '../components/sliderGroup';
-import {Pokemon} from '../constants/pokemon';
-import Handle from '../components/handle';
+import Totals from '../components/totals';
 import XPInputs from '../components/inputs';
 import selector from '../selectors/calculator';
 
 class Calculator extends React.Component {
   render() {
+    console.log(this.props.grossEvolveXP)
     return (
       <div>
         <XPInputs
@@ -19,6 +20,9 @@ class Calculator extends React.Component {
           onCurrentXPChanged={event => this.props.actions.xp.currentXPChanged(event.target.value)}
           onTargetXPChanged={event => this.props.actions.xp.targetXPChanged(event.target.value)}
         />
+      <Totals
+        gross={this.props.grossEvolveXP}
+      />
 
       <br/>
       <label><input type="checkbox" />
