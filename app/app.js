@@ -1,16 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
-class Test extends React.Component {
-  render() {
-    return (
-      <div className="foobar">Test</div>
-    );
-  }
-}
-
+import Root from './containers/root';
 
 ReactDOM.render(
-  <Test />,
-  document.body
+  <Root />,
+  document.getElementById('root')
 );
