@@ -7,7 +7,7 @@ export default class Inputs extends React.Component {
         <div>
           <h3>Current XP</h3>
           <input
-            type="text"
+            type="number"
             value={this.props.currentXP}
             onChange={this.props.onCurrentXPChanged}
           />
@@ -15,7 +15,7 @@ export default class Inputs extends React.Component {
         <div>
           <h3>Target XP</h3>
           <input
-            type="text"
+            type="number"
             value={this.props.targetXP}
             onChange={this.props.onTargetXPChanged}
           />

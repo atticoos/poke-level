@@ -21,6 +21,8 @@ class Calculator extends React.Component {
         />
       <Totals
         gross={this.props.grossEvolveXP}
+        current={this.props.currentXP}
+        target={this.props.targetXP}
       />
 
       <br/>

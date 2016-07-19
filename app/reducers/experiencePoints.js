@@ -10,12 +10,12 @@ export default function calculatorReducer(state = initialState, action) {
     case Actions.CURRENT_XP_CHANGED:
       return {
         ...state,
-        currentXP: action.value
+        currentXP: parseInt(action.value)
       };
     case Actions.TARGET_XP_CHANGED:
       return {
         ...state,
-        targetXP: action.value
+        targetXP: parseInt(action.value)
       };
     default:
       return state;
