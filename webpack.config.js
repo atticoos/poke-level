@@ -17,7 +17,10 @@ module.exports = {
         loader: 'babel',
         query: {
           presets: ['es2015', 'react'],
-          plugins: ['transform-object-rest-spread']
+          plugins: [
+            'transform-object-rest-spread',
+            'transform-class-properties'
+          ]
         }
       },
       {

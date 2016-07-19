@@ -1,11 +1,7 @@
 import React from 'react';
 
-export default function Handle({pokemon, ...props}) {
-  console.log('handle', props)
+export default function Handle({value, ...props}) {
   return (
-    <div className="handle">
-      {pokemon}<br/>
-      15
-    </div>
-  )
+    <div className="handle">{value}%</div>
+  );
 }
