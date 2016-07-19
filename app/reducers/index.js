@@ -1,8 +1,8 @@
 import {combineReducers} from 'redux';
-import calculator from './calculator';
+import experiencePoints from './experiencePoints';
 
 const reducers = {
-  calculator
+  experiencePoints
 };
 
 export default combineReducers(reducers);

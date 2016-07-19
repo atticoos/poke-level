@@ -3,6 +3,7 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import * as ExperiencePointsActions from '../actions/experiencePoints';
 import XPInputs from '../components/inputs';
+import selector from '../selectors/calculator';
 
 class Calculator extends React.Component {
   render() {
@@ -14,15 +15,11 @@ class Calculator extends React.Component {
           onCurrentXPChanged={event => this.props.xpActions.currentXPChanged(event.target.value)}
           onTargetXPChanged={event => this.props.xpActions.targetXPChanged(event.target.value)}
         />
+      <span>needed: {this.props.pidgies}</span>
       </div>
     );
   }
 }
-
-const selector = state => ({
-  currentXP: state.calculator.currentXP,
-  targetXP: state.calculator.targetXP
-});
 
 const actions = dispatch => ({
   xpActions: bindActionCreators(ExperiencePointsActions, dispatch)
